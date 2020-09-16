@@ -1,0 +1,102 @@
+@import "responsive.scss";
+.main {
+
+  &-container {
+    margin: 0.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .filter-section{
+      margin-right: 1em;
+  }
+  @include media("<=700px") {
+    background-color: #def;
+
+    &:before {
+      content: "<=phone";
+    }
+
+    &-container {
+      flex-direction: column;
+    }
+    .filter-section{
+        margin-right: 0em;
+    }
+  }
+
+  @include media(">=699px", "<1024px") {
+    background-color: #fed;
+
+    &:before {
+      content: "tablet";
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .card {
+      flex: 0 1 calc(50% - 1em);
+    }
+  }
+
+  @include media(">=desktop") {
+    background-color: #fab;
+
+    &:before {
+      content: ">=desktop";
+    }
+    .card {
+      flex: 0 1 calc(25% - 1em);
+    }
+  }
+
+  @include media("retina2x") {
+    &:after {
+      content: "Retina" !important;
+    }
+  }
+}
+
+img {
+  display: block;
+  border: 0;
+  width: 100%;
+  height: auto;
+}
+
+.card {
+  background: white;
+  margin-bottom: 2em;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card a {
+  color: black;
+  text-decoration: none;
+}
+
+.card a:hover {
+  box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
+}
+
+.card-content {
+  padding: 1.4em;
+}
+
+.card-content h2 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.card-content p {
+  font-size: 80%;
+}
